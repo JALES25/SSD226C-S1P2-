@@ -1,0 +1,98 @@
+﻿@model IEnumerable<S2P1.Models.Person>
+@* 
+    Group Assignmnent :   S2P2
+    Student numbers   :221004954,219014233,222006734,220003789
+    Purpose:          :The purpose of this program is to provide the user with a web based page of the people stored in the database and display their information details. 
+*@
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>List of People</h1>
+
+<p>
+    <a asp-action="Create">Add a New Person</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th hidden>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FullName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+            <th hidden>
+                @Html.DisplayNameFor(model => model.Address.PersonAddressId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Address.AddressLine1)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Address.AddressLine2)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Address.AddressLine3)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Address.AddressLine4)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Address.AddressLine5)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Address.Code)
+            </th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td hidden>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FullName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td hidden>
+                @Html.DisplayFor(modelItem => item.Address.PersonAddressId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Address.AddressLine1)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Address.AddressLine2)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Address.AddressLine3)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Address.AddressLine4)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Address.AddressLine5)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Address.Code)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.Id })  |
+
+                @Html.ActionLink("Details", "Details", new { id=item.Id })  |
+        
+                @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
